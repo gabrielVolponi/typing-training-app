@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+.typing-text {
+  font-family: 'Fira Code', monospace;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+.cursor-active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 2px solid #fff;
+}
+
+.char-correct {
+  color: #4ade80;
+}
+
+.char-incorrect {
+  color: #ef4444;
+  text-decoration: underline;
+}
+
+.char-current {
+  animation: blink 1s infinite;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0 2px;
+  margin: 0 -2px;
+  border-radius: 2px;
+}
+
+.cursor-indicator {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 4px;
+  font-size: 1.2em;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* SUPPORT NEXTJS ERROR UI */
+nextjs-portal {
+  display: none;
+}
